@@ -103,4 +103,7 @@
     <Folder Include="Core\Programmability\Stored Procedures\" />
     <Folder Include="Core\Tables\" />
   </ItemGroup>
+  <ItemGroup>
+    <Build Include="Core\Programmability\Stored Procedures\p_Installation01.sql" />
+  </ItemGroup>
 </Project>
