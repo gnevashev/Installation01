@@ -57,46 +57,10 @@
   <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
   <ItemGroup>
     <Folder Include="Properties" />
-    <Content Include="Core\.git">
-      <Link>Core\.git</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Core\.gitignore">
-      <Link>Core\.gitignore</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Core\CiSqlServer.refactorlog">
-      <Link>Core\CiSqlServer.refactorlog</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Core\CiSqlServer.sqlproj">
-      <Link>Core\CiSqlServer.sqlproj</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Core\Data\top_Chains.json">
-      <Link>Core\Data\top_Chains.json</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Build Include="Core\Programmability\Stored Procedures\p_AutoLoadChains.sql">
-      <Link>Core\Programmability\Stored Procedures\p_AutoLoadChains.sql</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Build>
-    <Content Include="Core\Script.PostDeploymentPopulateData.sql">
-      <Link>Core\Script.PostDeploymentPopulateData.sql</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Build Include="Core\Tables\top_Chains.sql">
-      <Link>Core\Tables\top_Chains.sql</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Build>
-    <Build Include="Core\Tables\top_ParamValues.sql">
-      <Link>Core\Tables\top_ParamValues.sql</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Build>
-    <Build Include="Core\Tables\t_CoreTable.sql">
-      <Link>Core\Tables\t_CoreTable.sql</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Build>
+	<Content Include="Core\**\*.*">
+      <Link>Core\%(RecursiveDir)%(FileName)%(Extension)</Link>
+	</Content>
+    <Build Include="Core\**\*.sql" Exclude="Core\**\*PostDepl*.sql"/>	
     <Folder Include="Core\" />
     <Folder Include="Core\Data\" />
     <Folder Include="Core\Programmability\" />
@@ -108,4 +72,7 @@
   <ItemGroup>
     <Build Include="Programmability\Stored Procedures\p_Installation01.sql" />
   </ItemGroup>
+  <ItemGroup>
+    <PostDeploy Include="Core\**\*PostDepl*.sql" />
+  </ItemGroup>   
 </Project>
