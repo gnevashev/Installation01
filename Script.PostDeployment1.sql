@@ -13,7 +13,7 @@ Post-Deployment Script Template
 
 :setvar XMLDATA "'"
 
-DECLARE @json nvarchar(max) = 
+DECLARE @jsonCoreTable nvarchar(max) = 
 $(XMLDATA)
 :r .\Data\t_CoreTable.json
 $(XMLDATA)
@@ -23,7 +23,7 @@ set identity_insert t_CoreTable on
 merge into [dbo].t_CoreTable as tc
   using (
 	select Id, CoreCaption, CoreSettings
-	from openjson (@json)  
+	from openjson (@jsonCoreTable)  
 	with (   
 				Id int '$.Id'
 			, CoreCaption nvarchar (255) '$.CoreCaption'
