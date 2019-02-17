@@ -77,10 +77,10 @@
       <Link>Core\Data\top_Chains.json</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Core\Programmability\Stored Procedures\p_AutoLoadChains.sql">
+    <Build Include="Core\Programmability\Stored Procedures\p_AutoLoadChains.sql">
       <Link>Core\Programmability\Stored Procedures\p_AutoLoadChains.sql</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    </Build>
     <Content Include="Core\Script.PostDeploymentPopulateData.sql">
       <Link>Core\Script.PostDeploymentPopulateData.sql</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -102,8 +102,10 @@
     <Folder Include="Core\Programmability\" />
     <Folder Include="Core\Programmability\Stored Procedures\" />
     <Folder Include="Core\Tables\" />
+    <Folder Include="Programmability" />
+    <Folder Include="Programmability\Stored Procedures" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="Core\Programmability\Stored Procedures\p_Installation01.sql" />
+    <Build Include="Programmability\Stored Procedures\p_Installation01.sql" />
   </ItemGroup>
 </Project>
